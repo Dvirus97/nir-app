@@ -1,0 +1,32 @@
+form {
+  td,
+  th {
+    text-align: left;
+  }
+
+  textarea {
+    resize: none;
+    height: fit-content;
+  }
+  textarea:disabled {
+    border: none;
+    background-color: transparent;
+    color: black;
+  }
+}
+
+table {
+  &:not(.inEditMode) {
+    td {
+      outline: 1px solid black;
+      //   background-color: red;
+    }
+  }
+}
+
+.add-person-button {
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid black;
+  text-align: center;
+}

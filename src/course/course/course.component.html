@@ -1,0 +1,34 @@
+@if (courses() ) {}
+
+<!-- <h3>course {{ courseId() }}</h3> -->
+<form *ngIf="form() as form" [formGroup]="form">
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>
+          <input-select
+            type="text"
+            formControlName="courseType"
+            [options]="CourseType"
+          ></input-select>
+        </td>
+        <td>
+          <input type="number" formControlName="grade" />
+        </td>
+        <td><input type="text" formControlName="name" /></td>
+        <td>
+          <input type="number" formControlName="points" />
+        </td>
+        <td>
+          <button (click)="onClickSaveBtn()">save</button>
+          <button (click)="onClickDeleteBtn()">X</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- courseType: new FormControl(),
+    grade: new FormControl(),
+    name: new FormControl(),
+    points: new FormControl(), -->
+</form>

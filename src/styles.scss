@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "./styles/elements";
+@import "./styles/config";
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  font-family: inherit;
+}
+
+html,
+body {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+  // padding: 10px;
+}
+
+main {
+  padding: 10px;
+}
+
+:root {
+  @include config;
+}
+
+.hidden {
+  display: none;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--zIndex-max) - 10);
+  background-color: #1235;
+  // background-color: transparent;
+}
+
+.pointer {
+  cursor: pointer;
+}

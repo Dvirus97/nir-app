@@ -1,0 +1,64 @@
+<!-- <div class="backdrop" (click)="toggleList()" *ngIf="showList"></div> -->
+
+<div
+  class="select-container"
+  [ngClass]="{ disabled: disabled() }"
+  [ngStyle]="{ '--icon-wrapper-width': iconWrapperWidth() + 'px' }"
+>
+  <input
+    [attr.in-select]="name()"
+    #selectInput
+    type="text"
+    class="select-value"
+    [disabled]="disabled()"
+    [value]="inputValue()"
+    (click)="onInputClick($event)"
+    (keydown)="onInputKeydown($event)"
+  />
+  <div #iconWrapper class="icons-wrapper">
+    <!-- <button
+      [attr.in-select]="name"
+      class="flat select-menu-button"
+      *ngIf="menuIconClick"
+      (click)="menuIconClick($event)"
+    >
+      <icon-menu [size]="3" [gap]="2" theme="dark"></icon-menu>
+    </button> -->
+
+    <button
+      [disabled]="disabled()"
+      [attr.in-select]="name()"
+      class="flat select-delete"
+      (click)="onDeleteIconClick($event)"
+    >
+      X
+    </button>
+    <!-- 
+    <icon-arrow
+      (click)="onArrowIconClick($event)"
+      class="select-arrow"
+      [attr.in-select]="name"
+      [disabled]="disabled"
+      [rotate]="showList ? 180 : 0"
+    ></icon-arrow> -->
+  </div>
+
+  @if (showList()) {
+  <div class="select-list">
+    @for (item of filteredOptions(); track $index) {
+    <option
+      class="select-item"
+      [ngClass]="{ selected: item === selectedItem() }"
+      (click)="onSelectItemClick(item)"
+      [value]="item.value"
+    >
+      {{ item.label }}
+    </option>
+    } @empty {
+    <option [attr.in-select]="name()" class="select-item disabled">
+      No Results
+    </option>
+    }
+  </div>
+  }
+</div>

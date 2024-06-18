@@ -1,0 +1,87 @@
+<h3>person page</h3>
+
+<div hidden>{{ people() }}</div>
+
+<div>
+  <button (click)="onClickEditBtn()">
+    {{ inEditMode() ? "Save" : "Edit" }}
+  </button>
+</div>
+
+<form [formGroup]="form">
+  <table [ngClass]="{ inEditMode: inEditMode() }">
+    <thead>
+      <tr>
+        <th></th>
+        <th>
+          Name
+
+          <button
+            appTooltip
+            (mouseleave)="onCopyBtnMouseLeave()"
+            (click)="onCopyBtnClick('name')"
+          >
+            <span #tooltipText>{{
+              isCopied() ? "Copied!" : "Copy Names"
+            }}</span>
+            copy
+          </button>
+        </th>
+        <th>
+          Age
+          <button
+            appTooltip
+            (mouseleave)="onCopyBtnMouseLeave()"
+            (click)="onCopyBtnClick('age')"
+          >
+            <span #tooltipText>{{ isCopied() ? "Copied!" : "Copy Ages" }}</span>
+            copy
+          </button>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container
+        formArrayName="people"
+        *ngFor="let person of peopleArray.controls; let i = index"
+      >
+        <tr [formGroup]="person">
+          <td>
+            {{ i + 1 }}
+          </td>
+          <td>
+            <textarea type="text" formControlName="name"></textarea>
+          </td>
+          <td>
+            <textarea type="number" formControlName="age"></textarea>
+          </td>
+          @if (inEditMode()) {
+          <td>
+            <button
+              type="button"
+              (click)="onClickDeletePerson(person.controls.id?.value)"
+            >
+              delete
+            </button>
+          </td>
+          }
+        </tr>
+      </ng-container>
+    </tbody>
+    <tfoot>
+      @if (inEditMode()) {
+      <tr>
+        <td colspan="10">
+          <button (click)="onClickAddPerson()" class="add-person-button">
+            +
+          </button>
+        </td>
+      </tr>
+      }
+    </tfoot>
+  </table>
+</form>
+
+<!-- <pre>
+  {{ people() | json }}
+</pre> -->

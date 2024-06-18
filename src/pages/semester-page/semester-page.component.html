@@ -1,0 +1,14 @@
+<div class="nav">
+  @for (link of linkArr; track $index) {
+  <button
+    [ngClass]="{ active: link.id == selectedSemesterId() }"
+    (click)="onLinkClick(link)"
+  >
+    {{ link.name }}
+  </button>
+  }
+</div>
+
+<h1>Semester {{ selectedSemesterId() }}</h1>
+
+<app-semester [semesterId]="selectedSemesterId()"></app-semester>

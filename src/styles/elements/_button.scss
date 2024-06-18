@@ -1,0 +1,70 @@
+button,
+label:has(input[type="radio"]) {
+  cursor: pointer;
+
+  &.main {
+    background-color: var(--color-main);
+    color: var(--color-text1);
+    border-radius: 7px;
+    padding: 0.5rem 1rem;
+    // margin: 0 0 0 1rem;
+    border: none;
+
+    &:hover {
+      background-color: var(--color-main-hover);
+    }
+
+    &[disabled],
+    &.disabled {
+      background-color: var(--color-main-disabled);
+      color: var(--color-text-disabled);
+      border: none !important;
+      cursor: context-menu;
+    }
+
+    &:focus,
+    &:focus-visible,
+    &:focus-within {
+      outline: solid 1px var(--color-text);
+    }
+  }
+
+  &.secondary {
+    border-radius: 7px;
+    background-color: var(--color-secondary);
+    color: var(--color-text1);
+    border: 1px solid var(--color-outline2);
+    padding: 5px 20px;
+    margin: 2px;
+    // height: 32px;
+
+    &:hover {
+      background-color: var(--color-secondary-hover);
+    }
+
+    &[disabled] {
+      background-color: var(--color-secondary-disabled);
+      color: var(--color-text-disabled);
+      cursor: context-menu;
+    }
+
+    &:focus,
+    &:focus-visible,
+    &:focus-within {
+      outline: solid 1px var(--color-text);
+    }
+  }
+
+  &.flat {
+    border-radius: 7px;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    color: var(--color-text);
+
+    &[disabled] {
+      opacity: 0.5;
+      cursor: context-menu;
+    }
+  }
+}

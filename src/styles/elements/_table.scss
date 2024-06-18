@@ -1,0 +1,12 @@
+.table {
+  --col-width: 200px;
+  tr {
+    display: flex;
+    gap: 3px;
+
+    td,
+    th {
+      width: var(--col-width);
+    }
+  }
+}

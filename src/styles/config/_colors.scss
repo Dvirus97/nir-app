@@ -1,0 +1,32 @@
+@mixin colors {
+  --color-card: #1b1c21;
+  --color-background: #2b3038;
+  --color-text1: #f2f2f2;
+  --color-text-disabled: #707070;
+  --color-input: #111214;
+  --color-shadow: #0005;
+
+  --color-outline1: #383943;
+  --color-outline2: #5b6067;
+
+  --color-tab-content: #8fab83;
+
+  // button
+  --color-main: #00b0ff;
+  --color-main-hover: #3ac1fe;
+  --color-main-disabled: #004463;
+  --color-secondary: #20242a;
+  --color-secondary-hover: #282a2d;
+  --color-secondary-disabled: #20242a;
+
+  // course
+  --color-primary: #004859;
+  --color-accent: #ff8888;
+  --color-accent-secondary: #ffc15a;
+  --color-accent-secondary-darker: #faa415;
+  --color-success: #4caf50;
+
+  --color-background: #eceff1;
+  --color-text: #263238;
+  --color-text-light: #607d8b;
+}

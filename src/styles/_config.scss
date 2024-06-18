@@ -1,0 +1,9 @@
+@import "./config/colors";
+@import "./config/sizes";
+@import "./config/zIndex";
+
+@mixin config {
+  @include colors;
+  @include sizes;
+  @include zIndex;
+}

@@ -1,0 +1,64 @@
+<button (click)="print()">print</button>
+
+@if (semesters()) {}
+
+<form *ngIf="form" [formGroup]="form">
+  <label>
+    semesterAvg
+    <input type="text" formControlName="semesterAvg" />
+  </label>
+  <label>
+    semesterNumber
+    <input-select
+      type="number"
+      formControlName="semesterNumber"
+      [options]="semesterNumberSelectArgs"
+    ></input-select>
+  </label>
+  <label>
+    totalPoints
+    <input type="number" formControlName="totalPoints" />
+  </label>
+
+  <div>add course</div>
+  <form style="display: flex" [formGroup]="selectCourseForm">
+    <input-select
+      class="select-course-input"
+      formControlName="addCourseInput"
+      [options]="coursesSelectArgs()!"
+    ></input-select>
+
+    <button class="main" type="button" (click)="onClickAddCourse()">
+      add course
+    </button>
+  </form>
+
+  @if (coursesIds.length) {
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>course type</th>
+        <th>grade</th>
+        <th>name</th>
+        <th>points</th>
+      </tr>
+    </thead>
+    @for (id of coursesIds.value; track $index) {
+    <!-- <ng-container *ngFor="let id of coursesIds.value; let index = index"> -->
+    <app-course
+      [courseId]="id"
+      [index]="$index"
+      (deleteCourse)="onDeleteCourse($event, $index)"
+    ></app-course>
+    }
+    <!-- </ng-container> -->
+  </table>
+  }
+</form>
+
+<!-- 
+ semesterAvg: new FormControl(),
+    semesterNumber: new FormControl(),
+    totalPoints: new FormControl(),
+    Type: new FormControl(), -->

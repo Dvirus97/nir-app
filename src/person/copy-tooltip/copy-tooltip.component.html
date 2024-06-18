@@ -1,0 +1,12 @@
+<div class="tooltip">
+  <!-- <ng-content select="[slot='element']">
+    <button #test (click)="onCopyClick()" (mouseleave)="onMouseLeaveCopy()">
+      <ng-content><div class="place-holder">place holder</div></ng-content>
+    </button>
+  </ng-content> -->
+  <span class="tooltip-text">
+    <ng-content select="[slot='text']">{{
+      isCopied() ? "Copied!" : "click to copy"
+    }}</ng-content>
+  </span>
+</div>

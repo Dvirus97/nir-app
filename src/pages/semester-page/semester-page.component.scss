@@ -1,0 +1,24 @@
+.nav {
+  display: flex;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  margin: -10px;
+
+  button {
+    flex-grow: 1;
+    // font-size: 1.2em;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    border-right: 1px solid black;
+
+    &:hover {
+      background-color: lightblue;
+      text-decoration: underline;
+    }
+    &.active {
+      background-color: rgb(62, 111, 127);
+      text-decoration: underline;
+    }
+  }
+}

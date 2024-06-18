@@ -1,0 +1,44 @@
+.form {
+  width: 350px;
+  padding: 20px;
+  background-color: lightblue;
+  .form-field {
+    label {
+      display: block;
+    }
+  }
+
+  .form-field-inline-group {
+    display: flex;
+    gap: 20px;
+  }
+  fieldset {
+    padding: 20px;
+  }
+}
+
+input,
+select {
+  width: 100%;
+  min-width: 150px;
+  line-height: 2rem;
+  border-radius: 8px;
+  padding: 0 0px 0 10px;
+  border: 1px solid black;
+}
+select {
+  height: 2rem;
+}
+
+// .ng-valid.ng-dirty:not([ngModelGroup]):not(form):not([no-color]),
+// .ng-valid.ng-dirty:not([ngModelGroup]):not(form) :is(input, select) {
+//   // border: 2px solid var(--color-success);
+//   outline: 2px solid var(--color-success);
+//   outline-offset: -1px;
+// }
+.ng-invalid.ng-dirty:not([ngModelGroup]):not(form):not([no-color]),
+.ng-invalid.ng-dirty:not([ngModelGroup]):not(form) :is(input, select) {
+  // border: 2px solid var(--color-success);
+  outline: 2px solid var(--color-accent);
+  outline-offset: -1px;
+}
